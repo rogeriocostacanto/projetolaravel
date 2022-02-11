@@ -21,15 +21,9 @@ class IdeiaController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            $id = Auth::user()->id;
-            $name = Auth::user()->name;
-            $email = Auth::user()->email;
-
-            return "ID: $id | Nome: $name | Email: $email";
-        } else {
-            return 'Você não está logado no sistema';
-        }
+        $user_id = auth()->user()->id;
+        $ideias = Ideia::where('user_id', $user_id)->get();
+        return view('ideia.index', ['ideias' => $ideias]);
     }
 
     /**
@@ -50,7 +44,14 @@ class IdeiaController extends Controller
      */
     public function store(Request $request)
     {
-        $ideia = Ideia::create($request->all());
+        $dados = $request->all('nome', 'tipo', 'descricao');
+        $dados['user_id'] = auth()->user()->id;
+
+        $ideia = Ideia::create($dados);
+
+        //$destinario = auth()->user()->email; //e-mail do usuário logado (autenticado)
+        //Mail::to($destinario)->send(new NovaTarefaMail($ideia));
+
         return redirect()->route('ideia.show', [$ideia]);
     }
 
@@ -64,6 +65,7 @@ class IdeiaController extends Controller
     {
 
         $ideia = Ideia::findOrFail($id);
+        return view('ideia.show', ['ideia' => $ideia]);
     }
 
     /**
