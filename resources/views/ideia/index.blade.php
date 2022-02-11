@@ -15,6 +15,8 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">data da proposta</th>
+                            <th></th>
+                            <th></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -24,10 +26,26 @@
                                 <td>{{ $i['nome']}}</td>
                                 <td>{{ $i['tipo']}}</td>
                                 <td>{{ date('d/m/Y', strtotime($i['updated_at'])) }}</td>
+                                <td> <a href="{{ route('ideia.edit', $i['id']) }}">Editar</td>
+                                <td> <a href="{{ route('ideia.edit', $i['id']) }}">Excluir</td>
                               </tr>
                             @endforeach
                         </tbody>
                     </table>
+
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="{{ $ideias->previousPageUrl() }}">Voltar</a></li>
+
+                            @for($j = 1; $j <= $ideias->lastPage(); $j++)
+                                <li class="page-item {{ $ideias->currentPage() == $j ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $ideias->url($j) }}">{{ $j }}</a>
+                                </li>
+                            @endfor
+                            
+                            <li class="page-item"><a class="page-link" href="{{ $ideias->nextPageUrl() }}">Avançar</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
