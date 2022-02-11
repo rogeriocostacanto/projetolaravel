@@ -22,4 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('ideia', 'App\Http\Controllers\IdeiaController');
+
+Route::resource('ideia', 'App\Http\Controllers\IdeiaController')
+    ->middleware('verified');

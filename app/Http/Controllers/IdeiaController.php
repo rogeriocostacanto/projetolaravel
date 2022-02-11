@@ -51,7 +51,7 @@ class IdeiaController extends Controller
     public function store(Request $request)
     {
         $ideia = Ideia::create($request->all());
-        return redirect()->route('ideia.show', ['ideia'->$ideia->id]);
+        return redirect()->route('ideia.show', [$ideia]);
     }
 
     /**
@@ -60,9 +60,10 @@ class IdeiaController extends Controller
      * @param  \App\Models\Ideia  $ideia
      * @return \Illuminate\Http\Response
      */
-    public function show(Ideia $ideia)
+    public function show($id)
     {
-        dd($ideia);
+
+        $ideia = Ideia::findOrFail($id);
     }
 
     /**
