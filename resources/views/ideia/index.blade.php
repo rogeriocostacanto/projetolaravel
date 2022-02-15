@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-            <div class="card-header" style="background-color: #ffcb6b;" >Propostas para projetos<a href="{{ route('ideia.create')}}" class="position-absolute end-0 m-1 pb-2" >Novo</a></div>
+            <div class="card-header" style="background-color: #ffcb6b;" >Propostas para projetos<a href="{{ route('ideia.create')}}" class="position-absolute end-0 m-1 pb-2" ><i class="fa fa-file"></i> Novo</a></div>
 
                 <div class="card-body">
                     <table class="table table-hover">

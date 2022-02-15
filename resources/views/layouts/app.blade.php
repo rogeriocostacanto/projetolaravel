@@ -83,28 +83,23 @@
                             @endif
                         @else
 
-<<<<<<< HEAD
+
                         <li class="nav-item">
-                        <a  class="nav-link" href="#" ><i class="fa fa-th"></i> Home</a>
+                        <a  class="nav-link" href="{{ url('/') }}" ><i class="fa fa-th"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                        <a  class="nav-link" href="#" ><i class="fa fa-lightbulb-o"></i> Idéias</a>
+                        <a  class="nav-link" href="{{route('ideia.index')}}" ><i class="fa fa-lightbulb-o"></i> Idéias</a>
                         </li>
 
+                        <li class="nav-item">
+                        <a  class="nav-link" href="{{route('ideia.index')}}" ><i class="fa fa-book"></i>Acervo</a>
+                        </li>
 
-                            <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
-                                </a>
-=======
-                            <li class="nav-item">
-                                <a href="{{route('ideia.index')}}" class="nav-link">Ideias para projetos</a>
-                                    <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     {{ Auth::user()->name }}
-                                    </a>
-                                </i>
->>>>>>> f3f95522b77c35a32ec3b5388d7e7db8049349db
+                                </a>  
+
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
