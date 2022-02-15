@@ -50,11 +50,11 @@
     </div>
 </div>
 <!--fim Barra do governo-->
-    <div id="app">
+    <div id="app">    
         <nav class="navbar navbar-expand-md navbar-light text-black shadow-sm" style="background-color: #67a8cd; ">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Projeto Mestrado
+            <div class="container">               
+                <a class="navbar-brand "  href="{{ url('/') }}">
+                    Banco de Idéias para projetos
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -82,6 +82,15 @@
                                 </li>
                             @endif
                         @else
+
+                        <li class="nav-item">
+                        <a  class="nav-link" href="#" ><i class="fa fa-th"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a  class="nav-link" href="#" ><i class="fa fa-lightbulb-o"></i> Idéias</a>
+                        </li>
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
