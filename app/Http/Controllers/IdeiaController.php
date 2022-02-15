@@ -80,13 +80,11 @@ class IdeiaController extends Controller
 
         $user_id = auth()->user()->id;
 
-        if($ideia->user_id == $user_id) {
-            return view('ideia.edit', ['ideia' =>$ideia]);
+        if ($ideia->user_id == $user_id) {
+            return view('ideia.edit', ['ideia' => $ideia]);
         } else {
-            return view('acesso-negado');                                                                                           
+            return view('acesso-negado');
         }
-
-        
     }
 
     /**
@@ -101,16 +99,15 @@ class IdeiaController extends Controller
         //print_r($request->all());
         //echo '<hr>';
         $ideia = Ideia::findOrFail($id);
-        $user_id = auth()->user()->id;                                                                                                 
-        
-        if($ideia->user_id == $user_id) {
-        
-         $ideia->update($request->all());
-         return redirect()->route('ideia.show', [$ideia]);
-         
+        $user_id = auth()->user()->id;
+
+        if ($ideia->user_id == $user_id) {
+
+            $ideia->update($request->all());
+            return redirect()->route('ideia.show', [$ideia]);
         } else {
             return view('acesso-negado');
-        }    
+        }
         //print_r($ideia->getAttributes());
     }
 
@@ -120,8 +117,15 @@ class IdeiaController extends Controller
      * @param  \App\Models\Ideia  $ideia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ideia $ideia)
+    public function destroy($id)
     {
-        //
+        $ideia = Ideia::findOrFail($id);
+
+        if (!$ideia->user_id == auth()->user()->id) {
+            return view('acesso-negado');
+        }
+
+        $ideia->delete();
+        return redirect()->route('ideia.index');
     }
 }
