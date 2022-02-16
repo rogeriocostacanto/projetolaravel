@@ -50,6 +50,23 @@
     </div>
 </div>
 <!--fim Barra do governo-->
+<!-- teste banner -->
+<div class="logo text-white" style="background-color: #466d83;" id="topo">
+    <div class="logo-text">
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-8">
+        <a href="https://formiga.ifmg.edu.br/">
+            <span class="orgtitle" style="color:white;">Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais</span> 
+            <h1 class="orgname" style="color:white;"> Campus Formiga </h1> 
+            <span class="orgsubordination" style="color:white;">Ministério da Educação</span> 
+        </a> 
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- teste banner -->
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-black shadow-sm" style="background-color: #67a8cd; ">
             <div class="container">
@@ -92,13 +109,14 @@
                         </li>
 
                         <li class="nav-item">
-                        <a  class="nav-link" href="{{route('ideia.index')}}" ><i class="fa fa-book"></i>Acervo</a>
+                        <a  class="nav-link" href="{{url('/acervo')}}" ><i class="fa fa-book"></i>Acervo</a>
                         </li>
-
+                        
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                                
 
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

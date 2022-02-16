@@ -19,9 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/principal', function () {
+    return view('principal');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/acervo', function () {
+    return view('acervo');
+});
 
 Route::resource('ideia', 'App\Http\Controllers\IdeiaController')
     ->middleware('verified');
