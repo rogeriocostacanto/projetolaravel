@@ -50,9 +50,9 @@
     </div>
 </div>
 <!--fim Barra do governo-->
-    <div id="app">    
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-black shadow-sm" style="background-color: #67a8cd; ">
-            <div class="container">               
+            <div class="container">
                 <a class="navbar-brand "  href="{{ url('/') }}">
                     Banco de Idéias para projetos
                 </a>
@@ -85,7 +85,7 @@
 
 
                         <li class="nav-item">
-                        <a  class="nav-link" href="{{ url('/') }}" ><i class="fa fa-th"></i> Home</a>
+                        <a  class="nav-link" href="{{ url('/home') }}" ><i class="fa fa-th"></i> Home</a>
                         </li>
                         <li class="nav-item">
                         <a  class="nav-link" href="{{route('ideia.index')}}" ><i class="fa fa-lightbulb-o"></i> Idéias</a>
@@ -98,7 +98,7 @@
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
-                                </a>  
+                                </a>
 
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
