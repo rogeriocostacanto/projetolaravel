@@ -31,5 +31,7 @@ Route::get('/acervo', function () {
     return view('acervo');
 });
 
-Route::resource('ideia', 'App\Http\Controllers\IdeiaController')
-    ->middleware('verified');
+Route::resource('ideia', 'App\Http\Controllers\IdeiaController');
+
+Route::resource('projeto', 'App\Http\Controllers\ProjetoController');
+

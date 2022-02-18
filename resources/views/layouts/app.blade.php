@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,49 +29,51 @@
 
     </style>
 
-</head>
-<body>
+ </head>
+ <body>
 <!--Barra do governo-->
-<style>#barra-brasil #brasil-vlibras .link-vlibras{display:inline-table !important}</style>
+  <style>#barra-brasil #brasil-vlibras .link-vlibras{display:inline-table !important}</style>
     <div id="barra-brasil">
-        <div id="wrapper-barra-brasil">
-            <div class="brasil-flag">
-                <a href="http://brasil.gov.br" class="link-barra">Brasil</a>
-            </div><span class="acesso-info">
-                <a href="http://brasil.gov.br/barra#acesso-informacao" class="link-barra">Acesso à informação</a></span>
-                <nav><ul class="list"><li><a href="#" id="menu-icon"></a>
-                </li><li class="list-item first"><a href="http://brasil.gov.br/barra#participe" class="link-barra">Participe</a>
-                </li><li class="list-item"><a href="http://www.servicos.gov.br/?pk_campaign=barrabrasil" class="link-barra" id="barra-brasil-orgao">Serviços</a>
-                </li><li class="list-item"><a href="http://www.planalto.gov.br/legislacao" class="link-barra">Legislação</a>
-                </li><li class="list-item last last-item"><a href="http://brasil.gov.br/barra#orgaos-atuacao-canais" class="link-barra">Canais</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
+         <div id="wrapper-barra-brasil">
+                <div class="brasil-flag"><a href="http://brasil.gov.br" class="link-barra">Brasil</a>
+                </div>
+                <span class="acesso-info"><a href="http://brasil.gov.br/barra#acesso-informacao" class="link-barra">Acesso à informação</a></span>
+                <nav>
+                    <ul class="list"><li><a href="#" id="menu-icon"></a>
+                      </li><li class="list-item first"><a href="http://brasil.gov.br/barra#participe" class="link-barra">Participe</a>
+                      </li><li class="list-item"><a href="http://www.servicos.gov.br/?pk_campaign=barrabrasil" class="link-barra" id="barra-brasil-orgao">Serviços</a>
+                      </li><li class="list-item"><a href="http://www.planalto.gov.br/legislacao" class="link-barra">Legislação</a>
+                      </li><li class="list-item last last-item"><a href="http://brasil.gov.br/barra#orgaos-atuacao-canais" class="link-barra">Canais</a></li>
+                    </ul>
+                </nav>
+         </div>
+     </div>
 <!--fim Barra do governo-->
-<!-- teste banner -->
-<div class="logo text-white" style="background-color: #466d83;" id="topo">
-    <div class="logo-text">
+
+    <!-- banner -->
+  <div class="logo" style="background-color: #466d83;" id="topo">   
     <div class="container" >
-        <div class="row">
-            <div class="col-sm-8">
-        <a href="https://formiga.ifmg.edu.br/">
+            
+        <div class="col-sm-8">
+                
+        <!--<img width="80" height="80" src="img/ifmg-vertical-branca.png" class="img-responsive" alt="Imagem Responsiva"> -->
             <span class="orgtitle" style="color:white;">Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais</span> 
             <h1 class="orgname" style="color:white;"> Campus Formiga </h1> 
             <span class="orgsubordination" style="color:white;">Ministério da Educação</span> 
-        </a> 
+       
+        </div>
+
     </div>
 </div>
-</div>
-</div>
-</div>
-<!-- teste banner -->
+<!--banner --> 
+
+
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-black shadow-sm" style="background-color: #67a8cd; ">
             <div class="container">
-                <a class="navbar-brand "  href="{{ url('/') }}">
-                    Banco de Idéias para projetos
+                <a class="navbar-brand"  href="{{ url('/') }}">
+                <strong>Banco de Idéias</strong> para projetos
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -148,13 +150,14 @@
 
     <!-- Footer-->
     <footer class="bg-light text-center text-white" >
-    <!-- Grid container -->
+    
+    
+    <!-- Grid container 
 
     <div class="container p-4 pb-0" >
-    <!-- Section: Social media -->
-
+    
     <section class="mb-4 " >
-      <!-- Facebook -->
+       
       <a
         class="btn btn-primary btn-floating m-1 rounded-circle"
         style="background-color: #3b5998;"
@@ -162,7 +165,7 @@
         role="button"
         ><i class="fa fa-facebook-f fa-lg"></i></a>
 
-      <!-- Twitter -->
+      
       <a
         class="btn btn-primary btn-floating m-1 rounded-circle"
         style="background-color: #55acee;"
@@ -171,7 +174,7 @@
         ><i class="fa fa-twitter"></i
       ></a>
 
-      <!-- Google -->
+      
       <a
         class="btn btn-primary btn-floating m-1 rounded-circle"
         style="background-color: #dd4b39;"
@@ -179,7 +182,7 @@
         role="button"
         ><i class="fa fa-google"></i></a>
 
-      <!-- Linkedin -->
+      
       <a
         class="btn btn-primary btn-floating m-1 rounded-circle"
         style="background-color: #0082ca;"
@@ -189,12 +192,12 @@
       ></a>
 
   </div>
-  <!-- Grid container -->
+  ----Grid container -->
 
 
   <!-- Copyright -->
   <div class="text-center p-3 text-black shadow-sm" style="background-color: #67a8cd;">
-      © 2022 Copyright: Rogério Canto - rogerio.canto@ifmg.edu.br
+      <strong>Banco de Idéias </strong> - Desenvolvido por Rogério Canto 
   </div>
     <!-- Copyright -->
 </footer>
