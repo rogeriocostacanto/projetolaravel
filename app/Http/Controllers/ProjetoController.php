@@ -14,7 +14,11 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        //
+        //$curso='técnico em informatica';
+        $user_id = auth()->user()->id;
+        $projetos = Projeto::where('user_id', $user_id)->get();
+        
+        return view('projeto.index', ['projetos' => $projetos]);
     }
 
     /**
@@ -40,8 +44,13 @@ class ProjetoController extends Controller
          //   $nameFile = $request->autor.'.'.$request->arquivo->extension();
          //   dd($request->arquivo->storeAs('projetos_academicos', $nameFile));
        // }
+        
+       $dados = $request->all();
+       $dados['user_id'] = auth()->user()->id;
 
-        Projeto::create($request->all());
+       $projeto = Projeto::create($dados);
+
+       return redirect()->route('projeto.show', ['projeto' => $projeto->id]);
         
     }
 
@@ -53,7 +62,7 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
-        //
+        dd($projeto->getAttributes());
     }
 
     /**

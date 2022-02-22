@@ -17,7 +17,7 @@ class CreateProjetosTable extends Migration
             $table->id();
             $table->string('titulo', 200);
             $table->string('autor',200);
-            $table->date('data_documento');
+            $table->string('data_documento',100);
             $table->string('curso',200);
             $table->string('descricao', 10000);
             $table->timestamps();
