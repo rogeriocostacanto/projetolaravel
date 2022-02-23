@@ -16,7 +16,7 @@ class ProjetoController extends Controller
     {
         //$curso='técnico em informatica';
         $user_id = auth()->user()->id;
-        $projetos = Projeto::where('user_id', $user_id)->get();
+        $projetos = Projeto::where('user_id', $user_id)->paginate(3);
         
         return view('projeto.index', ['projetos' => $projetos]);
     }
@@ -62,7 +62,7 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
-        dd($projeto->getAttributes());
+        return view('projeto.show', ['projeto' => $projeto]);
     }
 
     /**
@@ -73,7 +73,13 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        //
+        $user_id = auth()->user()->id;
+        
+        if($projeto->user_id == $user_id) {
+            return view('projeto.edit', ['projeto'=> $projeto]);
+        }
+
+        return view('acesso-negado');
     }
 
     /**
@@ -85,7 +91,12 @@ class ProjetoController extends Controller
      */
     public function update(Request $request, Projeto $projeto)
     {
-        //
+        if(!$projeto->user_id == auth()->user()->id) {
+            return view('acesso-negado');
+        }
+
+        $projeto->update($request->all());
+        return redirect()->route('projeto.show',['projeto' => $projeto->id]);
     }
 
     /**
@@ -96,6 +107,11 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-        //
+        if(!$projeto->user_id == auth()->user()->id) {
+            return view('acesso-negado');
+        }
+        $projeto->delete(); 
+
+        return redirect()->route('projeto.index');
     }
 }
