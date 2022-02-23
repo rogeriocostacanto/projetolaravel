@@ -39,18 +39,53 @@ class ProjetoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        //if($request->arquivo->isValid()) {
-         //   $nameFile = $request->autor.'.'.$request->arquivo->extension();
-         //   dd($request->arquivo->storeAs('projetos_academicos', $nameFile));
-       // }
         
+       // if($request->arquivo->isValid()) {
+       //     $nameFile = $request->autor.'.'.$request->arquivo->extension();
+       //     dd($request->arquivo->storeAs('projetos_academicos', $nameFile));
+      //  }
+
+      /*        
        $dados = $request->all();
        $dados['user_id'] = auth()->user()->id;
 
        $projeto = Projeto::create($dados);
 
-       return redirect()->route('projeto.show', ['projeto' => $projeto->id]);
+       return redirect()->route('projeto.show', ['projeto' => $projeto->id]);*/
+
+
+       // Handle File Upload
+        if($request->hasFile('arquivo')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('arquivo')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('arquivo')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload file
+            $path = $request->file('arquivo')->storeAs('public/acervo', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'nofile.pdf';
+        }
+
+        //save in database
+        $projeto = Projeto::create([
+            'titulo' => $request->titulo,
+            'autor' => $request->autor,
+            'data_documento' => $request->data_documento,
+            'curso' => $request->curso,
+            'descricao' => $request->descricao,
+            'user_id' => auth()->user()->id,
+            'arquivo' => $fileNameToStore
+        ]);
+
+        $request->session()->flash(
+            'mensagem',
+            "Projeto {$projeto->id} criado com sucesso {$projeto->titulo}"
+        );
+        return  redirect()->route('projeto.show',['projeto' => $projeto->id]);
         
     }
 
@@ -71,11 +106,16 @@ class ProjetoController extends Controller
      * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Projeto $projeto)
+    public function edit(Projeto $projeto, Request $request)
     {
         $user_id = auth()->user()->id;
         
         if($projeto->user_id == $user_id) {
+
+            //remove o arquivo antigo caso um novo arquivo tenha sido enviado no request
+            if($request->hasFile('arquivo')) {
+                Storage::disk('public')->delete($projeto->arquivo);
+            }
             return view('projeto.edit', ['projeto'=> $projeto]);
         }
 

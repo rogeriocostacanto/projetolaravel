@@ -20,6 +20,7 @@ class CreateProjetosTable extends Migration
             $table->string('data_documento',100);
             $table->string('curso',200);
             $table->string('descricao', 10000);
+            $table ->string('arquivo');
             $table->timestamps();
         });
     }

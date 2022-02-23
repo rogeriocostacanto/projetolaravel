@@ -111,7 +111,7 @@
                         </li>
 
                         <li class="nav-item">
-                        <a  class="nav-link" href="{{url('/acervo')}}" ><i class="fa fa-book"></i>Acervo</a>
+                        <a  class="nav-link" href="{{url('/projeto')}}" ><i class="fa fa-book"></i>Acervo</a>
                         </li>
                         
                         <li class="nav-item dropdown">
